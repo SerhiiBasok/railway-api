@@ -1,7 +1,16 @@
 from django.contrib import admin
 
-from railway_app.models import (Crew, Journey, Order, Payment, Route, Station,
-                                Ticket, Train, TrainType)
+from railway_app.models import (
+    Crew,
+    Journey,
+    Order,
+    Payment,
+    Route,
+    Station,
+    Ticket,
+    Train,
+    TrainType,
+)
 
 admin.site.register(Order)
 admin.site.register(Station)
