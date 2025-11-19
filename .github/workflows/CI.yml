@@ -38,10 +38,3 @@ jobs:
           if [ "$EXIT_CODE" -ne 0 ] && [ "$EXIT_CODE" -ne 5 ]; then
               exit $EXIT_CODE
           fi
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          files: ./coverage.xml
-          flags: unittests
-          fail_ci_if_error: true
