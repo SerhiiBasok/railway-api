@@ -32,5 +32,3 @@ class RouteViewSet(BaseViewSetMethodMixin, viewsets.ModelViewSet):
         "list": RouterListSerializer,
         "retrieve": RouterListSerializer,
     }
-
-

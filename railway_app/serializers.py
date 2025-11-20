@@ -34,10 +34,12 @@ class RouteSerializer(serializers.ModelSerializer):
 
 
 class RouterListSerializer(serializers.ModelSerializer):
+    source = serializers.SlugRelatedField(slug_field="name", read_only=True)
+    destination = serializers.SlugRelatedField(slug_field="name", read_only=True)
 
     class Meta:
         model = Route
-        fields = ("source", "destination")
+        fields = ("id", "source", "destination")
 
 
 class TrainTypeSerializer(serializers.ModelSerializer):
