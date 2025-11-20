@@ -33,6 +33,13 @@ class RouteSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class RouterListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Route
+        fields = ("source", "destination")
+
+
 class TrainTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
