@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 
-from railway_app.models import Station, Route, TrainType
+from railway_app.models import Station, Route, TrainType, Train
 from railway_app.serializers import (
     StationSerializer,
     StationListSerializer,
     RouterListSerializer,
     RouteSerializer,
     TrainTypeSerializer,
+    TrainSerializer,
+    TrainListSerializer,
+    TrainRetrieveSerializer,
 )
 from utils.custom_mixin import BaseViewSetMethodMixin
 
@@ -38,3 +41,13 @@ class RouteViewSet(BaseViewSetMethodMixin, viewsets.ModelViewSet):
 class TrainTypeViewSet(BaseViewSetMethodMixin, viewsets.ModelViewSet):
     queryset = TrainType.objects.all()
     serializer_class = TrainTypeSerializer
+
+
+class TrainViewSet(BaseViewSetMethodMixin, viewsets.ModelViewSet):
+    queryset = Train.objects.all()
+    serializer_class = TrainSerializer
+
+    action_serializers = {
+        "list": TrainListSerializer,
+        "retrieve": TrainRetrieveSerializer,
+    }
